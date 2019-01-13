@@ -9,13 +9,11 @@ namespace DAL
 {
    public class Mail
     {
-        public static int Sendmail(string getmail, string title, string message)
+        public static bool Sendmail(string getmail, string title, string message)
         {
-            try
-            {
                 string smtpServer = "smtp.qq.com"; //SMTP服务器
                 string mailFrom = "code_test@qq.com"; //登陆用户名
-                string userPassword = "whzfwobbzjxedjai";//登陆密码-新版之后的QQ邮箱都是使用授权码,需要到邮箱-设置-账户里面找到-生成授权码-复制进来
+                string userPassword = "punypwdoitjiebed";//登陆密码-新版之后的QQ邮箱都是使用授权码,需要到邮箱-设置-账户里面找到-生成授权码-复制进来
 
                 // 邮件服务设置
                 SmtpClient smtpClient = new SmtpClient();
@@ -35,21 +33,14 @@ namespace DAL
                 try
                 {
                     smtpClient.Send(mailMessage); // 发送邮件
-                    int i = 1;
-                    return i;
+                    return true;
                 }
                 catch (Exception)
                 {
-                    int i = 0;
-                    return i;
+                   return false;
                 }
             }
 
-            catch
-            {
-                int i = 0;
-                return i;
-            }
-        }
+        
     }
 }
